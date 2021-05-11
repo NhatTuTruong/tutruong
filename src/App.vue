@@ -1,17 +1,35 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Menu mode="alert-primary" alert="alert" msg="Welcome to Your Vue.js App"/>
+    <Menu  mode="alert-danger" msg="Welcome to Your Vue.js App"/>
+    <Menu  mode="alert-success" msg="Welcome to Your Vue.js App"/>
+    <input class="form-control" v-model="name" type="text" name="">
+    <button type="button" @click="clickMe()" class="btn btn-primary"></button>
+    <h1>Full Name: {{name}}</h1>
+    <li v-for="item in items" :key="item">{{item}}</li>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Menu from './components/Menu.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Menu
+  },
+  data(){
+    return{
+      name: "Nhat",
+     items: [
+      'Nhat','Bui'
+    ]
+    }
+  },
+  methods:{
+    clickMe(){
+      console.log(this.name)
+    }
   }
 }
 </script>
